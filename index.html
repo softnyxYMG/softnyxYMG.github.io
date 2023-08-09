@@ -8,9 +8,10 @@
         body {
             font-size: 16px;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             text-align: center;
-            background-color: #f0f0f0;
+            background-color: #e3e8f0;
+            color: white;
         }
 
         h1 {
@@ -21,21 +22,19 @@
         p {
             color: #666;
         }
-
-        /* 뷰포트 너비가 600px 이하일 때 */
-        @media (max-width: 600px) {
-            body {
-                font-size: 14px;
-            }
-        }
-
-        body {
+        script {
             font-size: 16px;
             margin: 0;
             padding: 0;
             text-align: center;
             background-color: #e3e8f0;
             color: white;
+        }
+        /* 뷰포트 너비가 600px 이하일 때 */
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
         }
 
         #actionButton {
@@ -47,6 +46,7 @@
 <body>
     <h1>GBR 팀 초대</h1>
     <button id="actionButton">참여</button>
+
     <script>
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
