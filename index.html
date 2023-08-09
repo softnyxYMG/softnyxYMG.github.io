@@ -9,12 +9,12 @@
         }
 
         /* 뷰포트 너비가 600px 이하일 때 */
-        @media (max-width: 600px) {
+        @media (max-width: 600px), (max-height: 600px)  {
             body {
-                font-size: 14px; /* 작은 화면에 맞춰서 폰트 크기 축소 */
+                font-size: 14px;
             }
             #actionButton {
-                width: 100%; /* 버튼의 폭을 100%로 설정하여 화면 너비에 맞게 조절 */
+                width: 100%;
             }
         }
     </style>
