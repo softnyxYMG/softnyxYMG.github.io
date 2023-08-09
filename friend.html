@@ -2,27 +2,41 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GBR 친구 추가</title>
     <style>
         body {
-            font-size: 16px; /* 기본 폰트 크기 */
+            font-size: 16px;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p {
+            color: #666;
         }
 
         /* 뷰포트 너비가 600px 이하일 때 */
-        @media (max-width: 600px), (max-height: 600px)  {
+        @media (max-width: 600px) {
             body {
                 font-size: 14px;
             }
-            #actionButton {
-                width: 100%;
-            }
+        }
+        #actionButton {
+            font-size: 18px; /* 버튼 내부 폰트 크기 */
+            padding: 10px 20px; /* 상하 패딩 10px, 좌우 패딩 20px */
         }
     </style>
 </head>
 <body>
     <h1>GBR 친구 추가</h1>
     <button id="actionButton">친구 추가</button>
-
     <script>
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
@@ -41,19 +55,19 @@
         }
 
         function displayParameterValue(parameterName, elementId) {
-            var parameterValue = '친구 추가 (' + getParameterByName(parameterName) +')';
+            var parameterValue = '친구 추가 (' + getParameterByName(parameterName) + ')';
             var parameterValueElement = document.getElementById(elementId);
             parameterValueElement.textContent = parameterValue;
         }
 
-   
+
         displayParameterValue('nickname', 'actionButton');
 
         const actionButton = document.getElementById('actionButton');
-        actionButton.addEventListener('click', function() {
+        actionButton.addEventListener('click', function () {
             const accountID = getParameterByName('accountID');
             const nickname = getParameterByName('nickname');
-            const deepLinkUrl = 'softnyxgbr://mylink?friendinvite=' + encodeURIComponent(accountID) +','+encodeURIComponent(nickname);
+            const deepLinkUrl = 'softnyxgbr://mylink?friendinvite=' + encodeURIComponent(accountID) + ',' + encodeURIComponent(nickname);
             window.location.href = deepLinkUrl;
         });
     </script>

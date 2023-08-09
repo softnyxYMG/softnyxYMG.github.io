@@ -2,27 +2,51 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GBR 팀 초대</title>
     <style>
         body {
-            font-size: 16px; /* 기본 폰트 크기 */
+            font-size: 16px;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p {
+            color: #666;
         }
 
         /* 뷰포트 너비가 600px 이하일 때 */
-        @media (max-width: 600px), (max-height: 600px)  {
+        @media (max-width: 600px) {
             body {
                 font-size: 14px;
             }
-            #actionButton {
-                width: 100%;
-            }
+        }
+
+        body {
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #e3e8f0;
+            color: white;
+        }
+
+        #actionButton {
+            font-size: 18px; /* 버튼 내부 폰트 크기 */
+            padding: 10px 20px; /* 상하 패딩 10px, 좌우 패딩 20px */
         }
     </style>
 </head>
 <body>
     <h1>GBR 팀 초대</h1>
     <button id="actionButton">참여</button>
-
     <script>
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
@@ -41,7 +65,7 @@
         }
 
         const actionButton = document.getElementById('actionButton');
-        actionButton.addEventListener('click', function() {
+        actionButton.addEventListener('click', function () {
             const parameterValue = getParameterByName('teamcode');
             const deepLinkUrl = 'softnyxgbr://mylink?teamcode=' + encodeURIComponent(parameterValue);
             window.location.href = deepLinkUrl;
