@@ -13,19 +13,19 @@
 	<script src="js/script.js"></script>
 </head>
 <body>
-	<div class="header_wrap">
-		<div class="header type_02">
-			<div class="logo">
-				<img src="img/logo.png" alt="로고" />
-			</div>
+    <div class="header_wrap">
+        <div class="header type_02">
+            <div class="logo">
+                <img src="img/logo.png" alt="로고" />
+            </div>
             <div class="select_box">
                 <select>
                     <option>SPANISH</option>
                     <option>PORTUGUESE</option>
                 </select>
             </div>
-		</div>
-	</div>
+        </div>
+    </div>
     <div class="invite_wrap">
         <img src="img/logo_big.png" class="logo" alt="logo">
         <div class="btn_wrap">
@@ -46,5 +46,30 @@
             </a>
         </div> -->
     </div>
+
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        function displayParameterValue(parameterName, elementId) {
+            var parameterValue = getParameterByName(parameterName);
+            var parameterValueElement = document.getElementById(elementId);
+            parameterValueElement.textContent = parameterValue;
+        }
+
+        const invite_wrap = document.getElementById('invite_wrap');
+        invite_wrap.addEventListener('click', function () {
+            const parameterValue = getParameterByName('teamcode');
+            const deepLinkUrl = 'softnyxgbr://mylink?teamcode=' + encodeURIComponent(parameterValue);
+            window.location.href = deepLinkUrl;
+        });
+    </script>
 </body>
 </html>
