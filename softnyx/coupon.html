@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<title>Gun BoundR</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<script src="js/script.js"></script>
+</head>
+<body>
+	<div class="header_wrap">
+		<div class="header type_02">
+			<div class="logo">
+				<img src="img/logo.png" alt="로고" />
+			</div>
+            <div class="select_box">
+                <select>
+                    <option>SPANISH</option>
+                    <option>PORTUGUESE</option>
+                </select>
+            </div>
+		</div>
+	</div>
+    <div class="coupon_wrap">
+        <div class="illust_img">
+            <img src="img/illust_02.png" alt="illust">
+        </div>
+        <div class="box">
+            <h1>Usar cupones</h1>
+            <div class="form">
+                <div class="item">
+                    <span class="tit">ID (Nombre en el juego)</span>
+                    <input type="text" placeholder="ID" />
+                </div>
+                <div class="item">
+                    <span class="tit">CÓDIGO DEL CUPÓN</span>
+                    <input type="text" placeholder="CÓDIGO DEL CUPÓN" />
+                </div>
+                <button type="button" class="btn_primary">
+                    <span>Registrarse</span>
+                    <img src="img/btn_bg.png" alt="image" />
+                </button>
+            </div>
+            <div class="guide">
+                <span class="tit">ID Guide</span>
+                <p>
+                    Comprueba el apodo de la parte superior<br>
+                    izquierda tras acceder al juego
+                </p>
+                <button type="button">
+                    <img src="img/alert.svg" alt="alert icon" />
+                    AVISO
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="popup_wrap guide_pop">
+        <div class="inner">
+            <div class="head">
+                <h2>AVISO</h2>
+                <button type="button" class="btn_close">
+                    <img src="img/close.svg" alt="close" />
+                </button>
+            </div>
+            <div class="cont">
+                <span>Usar Cupones</span>
+                <ul>
+                    <li><p>Para poder utilizar el cupón, debes comprobar el apodo del miembro en el juego.</p></li>
+                    <li><p>Consulta la parte inferior de la página del cupón para saber cómo comprobar el apodo.</p></li>
+                    <li><p>Los artículos se entregan en tu buzón de correo del juego y pueden tardar algún tiempo en completar tu pago.</p></li>
+                    <li><p>Los artículos pagados en tu buzón incluyen un periodo de caducidad del buzón/artículo, que se eliminará automáticamente de tu lista de buzón/artículos.</p></li>
+                    <li><p>Los cupones ya utilizados o caducados no podrán utilizarse.</p></li>
+                    <li><p>Si introduce incorrectamente el apodo de un miembro y utiliza un cupón, no podrá recuperarlo</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $('.coupon_wrap .guide button').click(function() {
+                $('.guide_pop').css('display','flex');
+            });
+        });
+    </script>
+</body>
+</html>
