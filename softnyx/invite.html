@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-	<title>Gun BoundR</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<link rel="stylesheet" href="css/reset.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
-	<link rel="stylesheet" href="css/style.css" />
-	<script src="js/jquery-3.6.0.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-	<script src="js/script.js"></script>
+    <title>Gun BoundR</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+    </script>
+
 </head>
 <body>
     <div class="header_wrap">
@@ -29,13 +42,14 @@
     <div class="invite_wrap">
         <img src="img/logo_big.png" class="logo" alt="logo">
         <div class="btn_wrap">
-            <a href="#">
+            <a href="#" onclick="location.href ='softnyxgbr://mylink?teamcode=' + getParameterByName('teamcode');">
                 <img src="img/invite_btn_01_sp.png" alt="instala y juega" />
             </a>
             <a href="#">
-                <img src="img/invite_btn_02_sp.png" alt="ya he instalado gunboundr" />
-            </a>
-        </div>
+                <a href="#" onclick="location.href ='softnyxgbr://mylink?teamcode=' + getParameterByName('teamcode');">
+                    <img src="img/invite_btn_02_sp.png" alt="ya he instalado gunboundr" />
+                </a>
+</div>
         <!-- 포르투갈어 버튼 이미지 변경 파일명_pt -->
         <!-- <div class="btn_wrap">
             <a href="#">
@@ -46,30 +60,5 @@
             </a>
         </div> -->
     </div>
-
-    <script>
-        function getParameterByName(name, url) {
-            if (!url) url = window.location.href;
-            name = name.replace(/[\[\]]/g, '\\$&');
-            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-                results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, ' '));
-        }
-
-        function displayParameterValue(parameterName, elementId) {
-            var parameterValue = getParameterByName(parameterName);
-            var parameterValueElement = document.getElementById(elementId);
-            parameterValueElement.textContent = parameterValue;
-        }
-
-        const invite_wrap = document.getElementById('invite_wrap');
-        invite_wrap.addEventListener('click', function () {
-            const parameterValue = getParameterByName('teamcode');
-            const deepLinkUrl = 'softnyxgbr://mylink?teamcode=' + encodeURIComponent(parameterValue);
-            window.location.href = deepLinkUrl;
-        });
-    </script>
 </body>
 </html>
