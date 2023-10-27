@@ -22,6 +22,18 @@
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
+
+
+        function redirectToAppStore(platform) {
+            if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+                window.location.href = 'https://apps.apple.com/app/6448744882';
+            }
+            else if (navigator.userAgent.match(/Android/i)) {
+                window.location.href = 'https://play.google.com/store/apps/details?id=com.softnyx.gbr';
+            } else {
+                window.location.href = 'https://play.google.com/store/apps/details?id=com.softnyx.gbr';
+            }
+        }
     </script>
 
 </head>
@@ -42,7 +54,7 @@
     <div class="invite_wrap">
         <img src="img/logo_big.png" class="logo" alt="logo">
         <div class="btn_wrap">
-            <a href="#" onclick="location.href ='softnyxgbr://mylink?teamcode=' + getParameterByName('teamcode');">
+            <a href="#" onclick="redirectToAppStore()">
                 <img src="img/invite_btn_01_sp.png" alt="instala y juega" />
             </a>
             <a href="#" onclick="location.href ='softnyxgbr://mylink?teamcode=' + getParameterByName('teamcode');">
