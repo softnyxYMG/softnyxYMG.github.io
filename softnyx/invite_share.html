@@ -1,46 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-	<title>Gun BoundR</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<link rel="stylesheet" href="css/reset.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
-	<link rel="stylesheet" href="css/style.css" />
-	<script src="js/jquery-3.6.0.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-	<script src="js/script.js"></script>
+    <title>Gun BoundR</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+
+        function redirectToAppStore(platform) {
+            if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+                window.location.href = 'https://apps.apple.com/app/6448744882';
+            }
+            else if (navigator.userAgent.match(/Android/i)) {
+                window.location.href = 'https://play.google.com/store/apps/details?id=com.softnyx.gbr';
+            } else {
+                window.location.href = 'https://play.google.com/store/apps/details?id=com.softnyx.gbr';
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var teamShareMessage = document.querySelector('.invite_wrap p');
+            var inviteButton = document.querySelector('.invite_wrap a2');
+
+            if (getParameterByName('teamcode')) {
+
+                teamShareMessage.textContent = '¡Únete a un equipo en GunboundR!';
+
+                inviteButton.onclick = function () {
+                    location.href = 'softnyxgbr://mylink?teamcode=' + getParameterByName('teamcode');
+                };
+
+            } else if (getParameterByName('friendinvite')) {
+
+                teamShareMessage.textContent = '!Juega a GunboundR con tus amigos!';
+
+                const accountID = getParameterByName('accountID');
+                const nickname = getParameterByName('nickname');
+
+                inviteButton.onclick = function () {
+                    location.href = 'softnyxgbr://mylink?friendinvite=' + accountID + ',' + nickname;
+                };
+
+            } else {
+                teamShareMessage.textContent = '';
+
+                inviteButton.onclick = function () {
+                    location.href = 'softnyxgbr://mylink';
+                };
+            }
+        });
+    </script>
 </head>
 <body>
-	<div class="header_wrap">
-		<div class="header type_02">
-			<div class="logo">
-				<img src="img/logo.png" alt="로고" />
-			</div>
+    <div class="header_wrap">
+        <div class="header type_02">
+            <div class="logo">
+                <img src="img/logo.png" alt="로고" />
+            </div>
             <div class="select_box">
                 <select>
                     <option>SPANISH</option>
                     <option>PORTUGUESE</option>
                 </select>
             </div>
-		</div>
-	</div>
+        </div>
+    </div>
     <div class="invite_wrap">
         <img src="img/logo_big.png" class="logo" alt="logo">
-        
-        <!-- 팀공유 멘트 -->
-        <p>¡Únete a un equipo en GunboundR!</p>
-        <!-- 친구공유 멘트 -->
-        <!-- <p>!Juega a GunboundR con tus amigos!</p> -->
+
+        <p>""</p>
 
         <div class="btn_wrap">
-            <a href="#">
+            <a1 href="#" onclick="redirectToAppStore()">
                 <img src="img/invite_btn_01_sp.png" alt="instala y juega" />
-            </a>
-            <a href="#">
+            </a1>
+            <a2 href="#" onclick="location.href =''">
                 <img src="img/invite_btn_02_sp.png" alt="ya he instalado gunboundr" />
-            </a>
+            </a2>
         </div>
         <div class="sns_link">
             <ul>
