@@ -11,6 +11,49 @@
 	<script src="js/jquery-3.6.0.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 	<script src="js/script.js"></script>
+    <script>
+        $(function(){
+            $('.coupon_wrap .guide button').click(function() {
+                $('.guide_pop').css('display','flex');
+            });
+
+            $('.coupon_wrap .form .btn_primary').click(function() {
+                var userID = $('.coupon_wrap .form input[placeholder="ID"]').val();
+                var couponCode = $('.coupon_wrap .form input[placeholder="CÓDIGO DEL CUPÓN"]').val();
+
+                // AJAX 요청
+                $.ajax({
+                    url: 'https://jsonplaceholder.typicode.com/users',
+                    type: 'GET',
+                    dataType: 'json',
+                    // data: {
+                    //     projectId:'GBR',
+                    //     uid: userID,
+                    //     store:'web',
+                    //     couponCode: couponCode,
+                    //     notifyCallback:'true'
+                    // },
+                    success: function(resp) {
+
+                        console.log(resp);
+                        if(resp.result === 'Success') {
+                            alert('¡Registrado con éxito!');
+                        } else if(resp.result === 'AlreadyRegistered') {
+                            alert('¡Ya registrado!');
+                        } else {
+                            alert('Fallo en el registro');
+                        }
+                    },
+                    error: function (request, status, error) {
+                        alert('Error en el registro');
+                        console.log(request);
+                        console.log(status);
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 	<div class="header_wrap">
