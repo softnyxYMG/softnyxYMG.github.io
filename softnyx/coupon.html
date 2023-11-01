@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-	<title>Gun BoundR</title>
+	<title>GunBoundR</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="css/jquery-ui.css">
@@ -43,11 +43,15 @@
                     success: function(resp) {
                         console.log(resp);
                         if(resp.result === 'Success') {
-                            alert('¡Registrado con éxito!');
+                            alert('Success');
+                            //alert('¡Registrado con éxito!');
+
                         } else if(resp.result === 'AlreadyRegistered') {
-                            alert('¡Ya registrado!');
+                            alert('AlreadyRegistered');
+                            //alert('¡Ya registrado!');
                         } else {
-                            alert('Fallo en el registro');
+                            alert('fail!');
+                            //alert('Fallo en el registro');
                         }
                     },
                     error: function (request, status, error) {
