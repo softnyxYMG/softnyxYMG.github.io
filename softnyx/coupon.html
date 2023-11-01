@@ -21,20 +21,26 @@
                 var userID = $('.coupon_wrap .form input[placeholder="ID"]').val();
                 var couponCode = $('.coupon_wrap .form input[placeholder="CÓDIGO DEL CUPÓN"]').val();
 
+
+                if(!userID || !couponCode)
+                {
+                    alert('input id or code');
+                    return;
+                }
+
                 // AJAX 요청
                 $.ajax({
-                    url: 'https://jsonplaceholder.typicode.com/users',
-                    type: 'GET',
+                    url: 'https://coupon.gunbound-r.com:28025/v1/coupon/use',
+                    type: 'POST',
                     dataType: 'json',
-                    // data: {
-                    //     projectId:'GBR',
-                    //     uid: userID,
-                    //     store:'web',
-                    //     couponCode: couponCode,
-                    //     notifyCallback:'true'
-                    // },
+                    data: {
+                        projectId:'GBR',
+                        uid: userID,
+                        store:'web',
+                        couponCode: couponCode,
+                        notifyCallback:'true'
+                    },
                     success: function(resp) {
-
                         console.log(resp);
                         if(resp.result === 'Success') {
                             alert('¡Registrado con éxito!');
